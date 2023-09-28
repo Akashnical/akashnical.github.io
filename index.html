@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+	<title>Burger King</title>
+
+<style type="text/css">
+	*{
+		box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+	}
+	:root{
+		scroll-behavior: smooth;
+	}
+	body{
+		background: #efeded;
+		font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+		background-image: url(Background-image.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+
+	h1{
+		text-align: center;
+        color: #d69b3c;
+        font-size: 30px;
+		padding-bottom: 20px;
+	}
+	p{
+		font-size: 16px;
+	}
+
+	/*NEVIGATION MENU STARTS*/
+
+	nav{
+		background: #fff;
+		height: 70px;
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid #f7f7f7;
+	}
+	#logo{
+		width: 20%;
+		padding-left: 100px;
+	}
+	#navigation-menu{
+		width: 100%;
+	}
+	#list-items{
+		display: inline-flex;
+		float: right;
+        padding-right: 100px;
+		font-weight: 400;
+		align-items: center;
+	}
+	#list-items li{
+		list-style: none;
+		margin-right: 50px;
+		padding: 10px 0;
+	}#list-items li:nth-child(6){
+		margin-right: 25px;
+	}
+	#list-items li:nth-child(5){
+		margin-right: 30px;
+	}
+	#list-items li a{
+		text-decoration: none;
+		color: #474747;
+		display: flex;
+	}#list-items li a:hover{
+		color: #d69b3c;
+		transition: 0.2s ease;
+	}
+	#active{
+		border-bottom: 2px solid #d69b3c;
+	}
+	#active-side a{
+		color: #d69b3c;
+	}
+	#subscribe{
+		font-size: 14px;
+        height: 35px;
+        width: 110px;
+        background: transparent;
+        color: #d69b3c;
+        border: none;
+        border-radius: 3px;
+		border: 1px solid #d69b3c;
+		transition: 0.2s ease;
+	}#subscribe:hover{
+		cursor: pointer;
+		background: #d69b3c;
+		color: #fff;
+		transition: 0.2s ease;
+	}
+	#cart:hover{
+		opacity: 0.7;
+		transition: 0.2s ease;
+		color: red;
+	}
+
+	#cart-item {
+        background: #ffc107;
+        position: relative;
+        width: 15px;
+        height: 15px;
+        color: #fff;
+        text-align: center;
+        border-radius: 36px;
+        padding: 0px;
+        bottom: 8px;
+        right: 6px;
+    }
+	.last-list{
+		margin-right: 0 !important;
+	}
+
+
+	#hamburger-menu {
+        display: none;
+    }
+	#cart-mobile{
+		display: none;
+	}
+	@media only screen and (max-width:970px){
+	#logo{
+		width: 20%;
+		padding-left: 50px;
+	}
+	#list-items{
+        padding-right: 0px;
+	}
+	#list-items li:not(:nth-child(7)):not(:nth-child(8)) {display: none;}
+	#hamburger-menu {
+        display: block;
+    }
+	#cart-mobile{
+		display: block;
+	}
+	}
+	#hamburger-btn-link:hover .cls-1{
+		stroke: #d69b3c;
+		cursor: pointer;
+	}
+
+
+	.submenu{
+		position: absolute;
+		background: #fff;
+		width: 140px;
+        border-radius: 5px;
+		top: 53px;
+		box-shadow: 2px 2px 15px #aaaaaa33;
+		display: none;
+	}
+	.submenu li{
+		padding:15px 15px !important;
+        width: 100%;
+	}
+	.submenu-hover:hover .submenu{
+		display: block;
+
+	}
+	#Layer_2 {
+        width: 14px;
+        margin-left: 8px;
+		transform: rotate(180deg);
+		transition: 0.1s ease;
+    }
+	.submenu-hover a:hover #Layer_2{
+		transition: 0.1s ease;
+	}
+	.submenu-hover a:hover .cls-1{
+		stroke: #d69b3c;
+	}
+    
+	#side-navigation {
+        position: absolute;
+		top: 0;
+        background: #fff;
+        height: 100vh;
+        width: 230px;
+		padding: 15px;
+		display: none;
+		box-shadow: 2px 2px 15px #aaaaaa33;
+    }
+	#side-navigation li{
+        list-style: none;
+    }
+	#side-navigation li {
+        margin: 25px 25px;
+    }
+	#side-navigation li a{
+		color: #474747;
+        text-decoration: none;
+		transition: 0.2s ease;
+    }#side-navigation li a:hover{
+        color: #d69b3c;
+		transition: 0.2s ease;
+    }
+	.side-logo {
+        margin-left: 35px;
+        margin-top: -1.5px;
+    }
+	.side-submenu{
+		display: none;
+		transition: 0.2s ease;
+	}
+	#sidemenu-hover:hover .side-submenu{
+		display: block;
+		transition: 0.2s ease;
+	}
+
+	#side-navigation #subscribe{
+		width: 100%;
+	}
+	#side-navigation li a:hover .cls-1{
+		stroke: #d69b3c;
+	}
+
+	@media only screen and (max-width:300px){
+		#logo {
+    	padding-left: 30px;
+	}
+	#list-items li {
+		margin-right: 30px;
+	}
+    }
+	
+
+	/*LAND PAGE STARTS*/
+
+	#landing-page{
+		background: #fff;
+		width: 100%;
+		height: 100%;
+		background: #fbfbfb;
+		background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+		padding: 50px 100px;
+		display: flex;
+		align-items: center;
+	}
+	.landing-left-content{
+		flex: 1;
+	}
+	.landing-right-content{
+		flex: 1;
+	}
+	.landing-left-content h1{
+		font-size: 50px;
+		text-align: left;
+	}
+	.landing-left-content p{
+		padding-right: 50px;
+		line-height: 24px;
+	}
+	.learn-more-btn{
+		font-size: 14px;
+        height: 40px;
+        width: 130px;
+        margin-bottom: 50px;
+        margin-top: 30px;
+        background: #d69b3c;
+        color: white;
+        border: none;
+        border-radius: 3px;
+		margin-right: 25px;
+		transition: 0.2s ease;
+	}.learn-more-btn:hover{
+    	background: #fff;
+        color: #d69b3c;
+        border: 1px solid #d69b3c;
+    	cursor: pointer;
+		transition: 0.2s ease;
+    }
+	.landing-Menu-btn{
+		font-size: 14px;
+        height: 40px;
+        width: 130px;
+        margin-bottom: 50px;
+        margin-top: 30px;
+        background: #fff;
+        color: #d69b3c;
+        border: 1px solid #d69b3c;
+        border-radius: 3px;
+		transition: 0.2s ease;
+	}
+	.landing-Menu-btn:hover{
+		background: #d69b3c;
+		color: #fff;
+		cursor: pointer;
+		transition: 0.2s ease;
+	}
+
+	@media only screen and (max-width:970px){
+		#landing-page{
+		flex-direction: column;
+		padding: 50px 50px;
+	}
+	.landing-left-content{
+		text-align: center;
+	}
+	.landing-right-content{
+		flex: 1;
+	}
+	.landing-left-content h1{
+		font-size: 40px;
+		text-align: center;
+	}
+	.landing-left-content p{
+		padding-right: 10px;
+		text-align: justify;
+	}
+    }
+
+	@media only screen and (max-width:405px){
+	.learn-more-btn{
+		display: block;
+		margin: 30px 0 0 0;	
+		width: 100%;
+	}
+    .landing-Menu-btn{
+		margin: 30px 0 30px 0;	
+		width: 100%;
+	}
+	}
+	@media only screen and (max-width:300px){
+		#landing-page{
+		padding: 30px 30px;
+	}
+    }
+
+
+
+
+
+	/*FOOD ITEMS STARTS*/
+
+	#tittle{
+		margin-bottom: 50px;
+        padding-top: 50px;
+	}
+	#container{
+		margin: 50px 100px 50px 100px;
+        background: white;
+        border-radius: 10px;
+        text-align: center;
+	}
+	#horizontal-menu{
+        color: #c5c5c5;
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		grid-gap: 10px;
+		margin-bottom: 50px;
+    }
+    #horizontal-menu a:nth-child(1){
+    	border-bottom: 2px solid;
+    	color: #d69b3c;
+    }
+	#horizontal-menu a{
+		display: inline-block;
+        padding: 5px 96px;
+		text-decoration: none;
+		color: #c5c5c5;
+	}
+	#horizontal-menu a:hover{
+		color: #d69b3c;
+		transition: 0.2s ease;
+	}
+	div#card-container {
+        margin-bottom: 50px;
+    }
+    #card {
+		display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    #card-1, #card-2, #card-3, #card-4, #card-5 {
+        width:100%;
+    }
+    #card img {
+        background: #e8e8e8;
+        border-radius: 5px;
+    }
+    #card p{
+    	padding: 20px;
+    	font-size: 14px;
+    }
+	#card h5{
+    	color: #555555;
+        font-weight: 600;
+    }
+    #card button{
+    	font-size: 14px;
+        height: 40px;
+        width: 130px;
+        margin-bottom: 50px;
+        margin-top: 30px;
+        background: #d69b3c;
+        color: white;
+        border: none;
+        border-radius: 3px;
+    }
+    #card button:hover{
+    	opacity: 0.8;
+    	cursor: pointer;
+    }
+    #card button:active{
+    	background: #c8c6c6;
+    	transition: 0.2s ease;
+    }
+    #load-more{
+    	font-size: 14px;
+        height: 40px;
+        width: 130px;
+        margin-bottom: 50px;
+        margin-top: 30px;
+        background: #e8e8e8;
+        border: none;
+        border-radius: 3px;
+    }#load-more:hover{
+    	opacity: 0.8;
+    	cursor: pointer;
+    }
+    #load-more:active{
+    	background: #c8c6c6;
+    	transition: 0.2s ease;
+    }
+	@media only screen and (max-width:970px){
+		#container{
+		margin: 50px 50px 50px 50px;
+	}
+	#horizontal-menu a{
+        padding: 0;
+		padding-bottom: 15px;
+	}
+	#horizontal-menu {
+    grid-template-columns: 1fr;
+}
+}
+@media only screen and (max-width:400px){
+	#card {
+    grid-template-columns: 1fr;
+}
+}
+@media only screen and (max-width:300px){
+	#container{
+		margin: 30px 30px 30px 30px;
+	}
+}
+
+	/*OFFER STARTS*/
+
+	#offer {
+        text-align: center;
+		margin: 0px 15em;
+    }
+	#offer img {
+        border-radius: 10px;
+		filter: drop-shadow(-1px 0px 10px grey);
+    } 
+	@media only screen and (max-width:970px){
+		#offer {
+		margin: 0px 6em;
+    }
+	}
+	@media only screen and (max-width:400px){
+		#offer {
+		margin: 0px 4em;
+    }
+	}
+
+	/*CONTACT US STARTS*/
+
+	#underline {
+        padding: 5px 60px 0px 60px;
+        height: 50px;
+        border-top: 2px solid #d69b3c;
+    }
+	#contact-headings{
+		padding-top: 50px;
+		padding-bottom: 50px;
+		font-size: 22px;
+		color: #d69b3c;
+	}
+
+	#contact-content{
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+		padding-bottom: 50px;
+	}
+
+	#contact-image, #contact-form{
+		width: 100%;
+	}
+	#contact-image{
+		padding-left: 100px;
+		align-self: flex-end;
+	}
+	#contact-form {
+        text-align: left;
+        padding-left: 70px;
+		border-left: 2px solid #ededed;
+    }
+
+	input[type=text]{
+		height: 45px;
+		width: 373px;
+		padding-left: 8px;
+		margin: 10px 0 10px 0;
+		color: #7b7b7b;
+		border: 1px solid #c8c6c6;
+		border-radius: 5px;
+		outline: none;
+	}
+	input[type=text]:hover{
+		border: 1px solid #d69b3c;
+	}
+	select{
+		margin-right: 20px;
+		height: 45px;
+		width: 50px;
+		color: #8c8a8a;
+		padding-left: 5px;
+		border: 1px solid #c8c6c6;
+		border-radius: 5px;
+		outline: none;
+	}select:hover{
+		border: 1px solid #d69b3c;
+	}
+	label{
+		margin-bottom: 20px;
+	}
+	textarea{
+		width: 373px;
+		height: 210px;
+		padding-left: 5px;
+		padding-top: 5px;
+		margin: 10px 0 0 0;
+		color: #c8c6c6;
+		border: 1px solid #c8c6c6;
+		border-radius: 5px;
+		color: #7b7b7b;
+		outline: none;
+	}textarea:hover{
+		border: 1px solid #d69b3c;
+	}
+	#phone-no{
+		width: 300px;
+	}
+
+	@media only screen and (max-width:970px){
+		#contact-image{
+			width:100%;
+		}
+		input[type=text] {
+			width: 91%;
+		}
+		#phone-no {
+			width: 90%;
+		}
+		textarea{
+			width: 90%;
+		}
+	}
+	@media only screen and (max-width:1216px){
+		#contact-image{
+			width:100%;
+		}
+		input[type=text] {
+			width: 100%;
+		}
+		#phone-no {
+			width: 100%;
+		}
+		textarea{
+			width: 100%;
+		}
+		#contact-form {
+			padding-right: 70px;
+	   }
+	}
+	@media only screen and (max-width:600px){
+		#contact-content {
+			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		}
+		#contact-image{
+			width:100%;
+            padding-left: 0px;
+		}
+		input[type=text] {
+			width: 91%;
+		}
+		#phone-no {
+			width: 83%;
+		}
+		textarea{
+			width: 91%;
+		}
+		#contact-form {
+			padding-left: 20px;
+			padding-right: 20px;
+	   }
+	}
+	@media only screen and (max-width:400px){
+		#contact-form {
+			padding-left: 20px;
+	}
+	#contact-content {
+			grid-template-columns: 1fr;
+		}
+	}
+	/*FOOTER STARTS*/
+
+	footer {
+        width: 100%;
+		color: white;
+        background-image: linear-gradient(#ffbc50, #b06e03);
+		padding: 50px 100px 20px 100px;
+    }
+	footer a{
+		text-decoration: none;
+		color: white;
+		font-size: 12px;
+	}
+	footer a:hover{
+		color: #e7e7e7;
+	}
+	#footer-links{
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+		margin-bottom: 45px;
+		justify-items: center;
+	}
+	#block-1{
+		width: 100%;
+	}
+	#block-2, #block-3, #block-4{
+		width: 70%;
+		font-size: 16px;
+	}
+	#block-1 h2{
+		color: white;
+		font-size: 30px;
+		font-weight: 600;
+	}
+	#block-1 p{
+		padding-top: 30px;
+		padding-bottom: 30px;
+		font-size: 14px;
+		padding-right: 50px;
+		line-height: 22px;
+	}
+	#block-1 a{
+		text-decoration: underline;
+		font-size: 14px;
+		color: white;
+	}
+	#block-1 button{
+		font-size: 14px;
+        height: 40px;
+        width: 150px;
+        margin-bottom: 50px;
+        margin-top: 30px;
+        background: #ffffff;
+        color: #d69b3c;
+        border: none;
+        border-radius: 3px;
+	}
+	#block-1 button:hover{
+		background: #e7e7e7;
+		cursor: pointer;
+		transition: 0.2s ease;
+	}
+	#block-2 h3, #block-2 li, #block-3 h3, #block-3 li, #block-4 h3, #block-4 li{
+		padding-bottom: 17px;
+		text-decoration: none;
+		list-style: none;
+	}
+	#Social-media{
+		display: inline-flex;
+	}
+	#facebook:hover, #instagram:hover, #linkedin:hover{
+		opacity: 0.9;
+	}
+	#facebook, #instagram, #linkedin{
+		padding: 6px 0 5px 7px;
+		margin-right: 45px;
+        width: 38px;
+        border-radius: 30px;
+        border: 1px solid white;
+		opacity: 0.7;
+	}
+	#facebook img, #instagram img, #linkedin img{
+		margin-left: 2px;
+        margin-top: 1px;opacity: 10px;
+	}
+	#horizonral-line{
+		margin-top: 50px;
+		border: 1px solid transparent;
+		border-top: 1px solid #d6d6d6;
+		opacity: 0.7;
+	}
+	#footer-info{
+		margin-top: 20px;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+		opacity: 0.8;
+	}
+	#copyright{
+		width:50%
+	}
+	#our-links{
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	}
+	#our-links a{
+		padding-right: 35px;
+	}
+
+	@media only screen and (max-width:600px){
+		#footer-links{
+		grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+	}
+	#footer-info{
+		grid-template-columns: 1fr;
+	}
+	#our-links{
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	}
+	footer {
+		padding: 50px 50px 20px 50px;
+	}
+	#block-1, #block-2, #block-3, #block-4{
+		margin-bottom: 20px;
+	}
+	}
+	@media only screen and (max-width:400px){
+		#footer-links{
+		grid-template-columns: 1fr;
+	}
+	footer {
+		padding: 50px 50px 20px 50px;
+	}
+	#block-1, #block-2, #block-3, #block-4{
+		margin-bottom: 20px;
+	}
+	}
+	@media only screen and (max-width:300px){
+	footer {
+		padding: 50px 20px 20px 20px;
+	}
+	}
+	@media only screen and (max-width:747px){
+	#block-1, #block-2, #block-3, #block-4{
+		text-align: center;
+	}
+	#block-1 p {
+		padding-right: 0px;
+	}
+	#linkedin {
+    	margin-right: 0px;
+    }
+	#Social-media {
+		display: flex;
+		justify-content: center;
+    }
+	}
+
+	@media only screen and (max-width:300px){
+		#our-links a{
+			margin-bottom: 20px;
+		}
+		#copyright {
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		#footer-info{
+			text-align: center;
+		}
+	}
+	@media only screen and (max-width:630px){
+		#footer-info {
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		}
+	}
+
+
+</style>
+</head>
+<body>
+	<nav>
+		<div id="logo">
+			<img src="mcdonalds.svg" height="40px">
+		</div>
+		<div id="navigation-menu">
+			<ul id="list-items">
+				<li id="active"><a href="#">Home</a></li>
+				<li><a href="#footer-links">About</a></li>
+				<li><a href="#tittle">Foods</a></li>
+				<li class="submenu-hover"><a href="#tittle">Menus </a>
+					<ul class="submenu">
+						<li><a href="#">Burger</a></li>
+						<li><a href="#">Sandwiches</a></li>
+						<li><a href="#">Hotdogs</a></li>
+						<li><a href="#">More</a></li>
+					</ul>
+				
+				</li>
+				<li><a href="#contact-headings">Contact us</a></li>
+				<li><button id="subscribe">Subscribe</button></li>
+				<li class="last-list"><a href="#"><img id="cart" src="carts.svg" height="20px"><span id="cart-item">1</span></a></li>
+				<li id="hamburger-menu">
+					<a href="#" id="hamburger-btn-link" href="javascript:void(0);" class="icon" onclick="myFunction()">
+						<?xml version="1.0" encoding="UTF-8"?>
+						<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.61 75.32">
+						  <defs>
+							<style>
+							  .cls-1 {
+								fill: none;
+								stroke: #231f20;
+								stroke-linecap: round;
+								stroke-miterlimit: 10;
+								stroke-width: 7px;
+							  }
+							</style>
+						  </defs>
+						  <g id="Layer_1-2" data-name="Layer 1">
+							<g>
+							  <line class="cls-1" x1="88.11" y1="3.5" x2="3.5" y2="3.5"/>
+							  <line class="cls-1" x1="88.11" y1="37.66" x2="3.5" y2="37.66"/>
+							  <line class="cls-1" x1="88.11" y1="71.82" x2="3.5" y2="71.82"/>
+							</g>
+						  </g>
+						</svg>
+				  </a>
+			   </li>
+			   <li id="cart-mobile"><a href="#"><img id="cart" src="carts.svg" height="20px"></a></li>
+			</ul>
+		</div>
+
+		<div id="side-navigation">
+			<div class="side-logo"><img src="mcdonalds.svg" height="40px"></div>
+			<ul id="side-list-items">
+				<li id="active-side"><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Foods</a></li>
+				<li id="sidemenu-hover"><a href="#">Menus
+					<span><?xml version="1.0" encoding="UTF-8"?>
+						<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 237.33 121.62">
+						  <defs>
+							<style>
+							  .cls-1 {
+								fill: none;
+								stroke: #231f20;
+								stroke-linecap: round;
+								stroke-miterlimit: 10;
+								stroke-width: 8px;
+							  }
+							</style>
+						  </defs>
+						  <g id="Layer_1-2" data-name="Layer 1">
+							<g>
+							  <line class="cls-1" x1="234.33" y1="118.62" x2="118.66" y2="3"/>
+							  <line class="cls-1" x1="3" y1="118.62" x2="118.66" y2="3"/>
+							</g>
+						  </g>
+						</svg></span>
+				</a>
+					<ul class="side-submenu">
+						<li><a href="#">Burger</a></li>
+						<li><a href="#">Sandwiches</a></li>
+						<li><a href="#">Hotdogs</a></li>
+						<li><a href="#">More</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Contact us</a></li>
+				<li><button id="subscribe">Subscribe</button></li>
+		</div>
+	</nav>
+
+<div id="landing-page">
+	<div class="landing-left-content">
+		<h1>Burger Hub!</h1>
+		<p>Burger Hub is a regional burger restaurant located in the Seattle, WA area. 
+			They strive to deliver high-quality burgers and provide excellent customer services.
+		</p>
+		<button class="learn-more-btn">Learn More</button><button class="landing-Menu-btn">Menu</button>
+	</div>
+	<div class="landing-right-content">
+		<img src="Asset 2.png" width="100%">
+	</div>
+</div>
+
+<div id="container">
+
+	<div id="tittle">
+		<h1>Menu</h1>
+		<span id="underline"></span>
+	</div>
+	
+	<div id="horizontal-menu">
+		<a href="#">Burgers</a>
+		<a href="#">Sandwiches</a>
+		<a href="#">Hotdogs</a>
+		<a href="#">Burgers</a>
+		<a href="#">More..</a>
+	</div>
+
+	<div id="card-container">
+	<div id="card">
+		<div id="card-1">
+			<img src="1.png" height="180px">
+			<p>Cheese Sandwitch Hamburger Ham King Food</p>
+			<div id="card-1">
+				<h5>$14.99</h5>
+				<button>Add to Cart</button>
+			</div>
+		</div>
+		<div id="card-2">
+			<img src="2.png" height="180px">
+			<p>Woopher Hamburger Food Burger</p>
+			<div id="card-2">
+				<h5>$9.99</h5>
+				<button>Add to Cart</button>
+			</div>
+		</div>
+		<div id="card-3">
+			<img src="3.png" height="180px">
+			<p>Tendercrisp Burger Sandwitch Grilled Hamburger</p>
+			<div id="card-3">
+				<h5>$11.99</h5>
+				<button>Add to Cart</button>
+			</div>
+		</div>
+		<div id="card-4">
+			<img src="4.png" height="180px">
+			<p>Hamburger Big Fries Cheeseburgers French</p>
+			<div id="card-4">
+				<h5>$6.99</h5>
+				<button>Add to Cart</button>
+			</div>
+		</div>
+		<div id="card-5">
+			<img src="5.png" height="180px">
+			<p>King Woopher Sandwitch Hamburger Big Cheeseburgers</p>
+			<div id="card-5">
+				<h5>$18.99</h5>
+				<button>Add to Cart</button>
+			</div>
+		</div>
+		<div id="card-6">
+			<img src="1.png" height="180px">
+			<p>Cheese Sandwitch Hamburger Ham King Food</p>
+			<div id="card-6">
+				<h5>$14.99</h5>
+				<button>Add to Cart</button>
+			</div>
+		</div>
+		<div id="card-7">
+			<img src="2.png" height="180px">
+			<p>Woopher Hamburger Food Burger</p>
+			<div id="card-7">
+				<h5>$9.99</h5>
+				<button>Add to Cart</button>
+			</div>
+		</div>
+		<div id="card-8">
+			<img src="3.png" height="180px">
+			<p>Tendercrisp Burger Sandwitch Grilled Hamburger</p>
+			<div id="card-8">
+				<h5>$11.99</h5>
+				<button>Add to Cart</button>
+			</div>
+		</div>
+		<div id="card-9">
+			<img src="4.png" height="180px">
+			<p>Hamburger Big Fries Cheeseburgers French</p>
+			<div id="card-9">
+				<h5>$6.99</h5>
+				<button>Add to Cart</button>
+			</div>
+		</div>
+		<div id="card-10">
+			<img src="5.png" height="180px">
+			<p>King Woopher Sandwitch Hamburger Big Cheeseburgers</p>
+			<div id="card-10">
+				<h5>$18.99</h5>
+				<button>Add to Cart</button>
+			</div>
+		</div>
+	</div>
+</div>
+<input type="button" name="" value="Load More" id="load-more" >
+</div>
+
+
+<div id="offer">
+	<img src="offer.jpeg" width="100%">
+</div>
+
+
+<div id="container">
+	<div id="contact-headings">
+		<h2>Contact Us</h2><br>
+		<span id="underline"></span>
+		<p>Maintain Your Order From Anywhere</p>
+	</div>
+	<div id="contact-content">
+		<div id="contact-image">
+			<img src="svg.svg" width="90%">
+		</div>
+		<div id="contact-form">
+			<form id="form">
+				<label>Full Name</label><br>
+				<input type="text" placeholder="Your Name"><br>
+				<label>Phone Number</label><br>
+				<select id="Country">
+					<option value="IN">IN</option>
+					<option value="US">US</option>
+					<option value="UK">UK</option>
+					<option value="IS">IS</option>
+				  </select>
+				<input id="phone-no" type="text" placeholder="+91-8954-678-512"><br>
+				<label>Email Address</label><br>
+				<input type="text" placeholder="Street, Area"><br>
+				<label>Message</label><br>
+				<textarea rows="10" cols="50" placeholder="Message Goes Here!"></textarea>
+			</form>
+		</div>
+	</div>
+</div>
+
+<footer>
+	<div id="footer-links">
+	<div id="block-1">
+		<h2>BiggyBite</h2>
+		<p>Get exclusive offer, inspiration and lots more to help bring your ideas to life. All for free. <a href="#">See More</a></p>
+		<button>Join now</button>
+	</div>
+	<div id="block-2">
+		<h3>Links</h3>
+	<ul>
+		<li><a href="#">Catalogue & Brochures</a></li>
+		<li><a href="#">Local Stores</a></li>
+		<li><a href="#">Planning Tools</a></li>
+		<li><a href="#">BIGGYBITE for Business</a></li>
+		<li><a href="#">BIGGYBITE App</a></li>
+	</ul>
+	</div>
+	<div id="block-3">
+	<ul>
+		<h3>Customer Service</h3>
+		<li><a href="#">Contact us</a></li>
+		<li><a href="#">Online delivery area</a></li>
+		<li><a href="#">Return Policy</a></li>
+		<li><a href="#">FAQ</a></li>
+		<li><a href="#">Guarantees & Warranties</a></li>
+	</ul>
+	</div>
+	<div id="block-4">
+	<ul>
+		<h3>About Us</h3>
+		<li><a href="#">This is BIGGYBITE</a></li>
+		<li><a href="#">Your Feedback</a></li>
+		<li><a href="#">Working with BIGGYBITE</a></li>
+		<li><a href="#">Community engagement</a></li>
+		<li><a href="#">BIGGYBITE Foundation</a></li>
+	</ul>
+	</div>
+    </div>
+
+	<div id="Social-media">
+		<a href="#">
+			<div id="facebook">
+			<img src="facebook.svg" height="20px">
+		</div>
+	    </a>
+		<a href="#">
+			<div id="instagram">
+			<img src="instagram.svg" height="20px">
+		</div>
+	    </a>
+		<a href="#">
+			<div id="linkedin">
+			<img src="linkedin.svg" height="20px">
+		</div>
+	    </a>
+	</div>
+	<hr id="horizonral-line">
+
+	<div id="footer-info">
+		<div id="copyright">
+			<span style="font-size: 15px;">ⓒ</span> BIGGYBITE 2023
+		</div>
+		<div id="our-links">
+			<a href="#">Terms of Use</a>
+			<a href="#">Privacy Policy</a>
+			<a href="#">Cookies System</a>
+		</div>
+	</div>
+
+</footer>
+
+<script>
+	var btn1 = document.querySelector("#hamburger-btn-link")
+	var btn2 = document.querySelector("#hamburger-menu")
+	var container1 = document.querySelector("#side-navigation")
+	btn1.addEventListener("click", function(){
+    if(container1.style.display == "block"){
+      container1.style.display = "none"
+    }else{
+      container1.style.display = "block"
+    }
+    })
+
+	function myFunction(x) {
+    if (x.matches) { 
+    container1.style.display = "none"
+    } 
+    }
+
+    var x = window.matchMedia("(min-width: 970px)")
+    myFunction(x)
+    x.addListener(myFunction)
+</script>
+</body>
+</html>
